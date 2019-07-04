@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Particles from 'react-particles-js';
+import Logo from './components/Logo/Logo';
+import WelcomeMessage from './components/WelcomeMessage/WelcomeMessage'
 import './App.css';
 
 const particlesOptions = {
@@ -9,13 +11,6 @@ const particlesOptions = {
       density: {
         enable: true,
         value_area: 800
-      }
-    },
-    shape: {
-      type: "circle",
-      stroke: {
-        width: 0,
-        color: "#000000"
       }
     },
     opacity: {
@@ -35,42 +30,6 @@ const particlesOptions = {
     line_linked: {
       enable: false
     },
-    move: {
-      enable: true,
-      speed: 1,
-      direction: "none",
-      random: true,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-    }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "bubble"
-      },
-      onclick: {
-        enable: true,
-        mode: "repulse"
-      },
-      resize: true
-    },
-    modes: {
-      bubble: {
-        distance: 250,
-        size: 0,
-        duraction: 2,
-        opacity: 0,
-        speed: 3
-      },
-      repulse: {
-        distance: 400,
-        duration: 0.4
-      }
-    }
   }
 }
 
@@ -82,6 +41,7 @@ class App extends Component {
         <Particles className = 'particles'
           params={particlesOptions}
         />
+        <Logo />
       </div>
     );
   }
