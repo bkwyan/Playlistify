@@ -6,9 +6,11 @@ class LoginScreen extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			LOGIN_URI: 'http://localhost:8888/login',
+			LOGIN_URI: 'https://vast-mountain-68596.herokuapp.com/login',
 		}
 	}
+
+
 
 	render(){
 		return(
