@@ -32,10 +32,6 @@ app
   .use(bodyParser.json())
   .use(cookieParser())
 
-app.get('/', (req, res) => {
-  res.json('hello');
-})
-
 app.get('/login', (req, res) => {
   const state = generateRandomString(16);
 
@@ -54,7 +50,7 @@ app.get('/login', (req, res) => {
   );
 });
 
-app.get('/callback', (req, res) => {
+app.get('/callback', function(req, res) {
 
   // your application requests refresh and access tokens
   // after checking the state parameter
@@ -86,14 +82,25 @@ app.get('/callback', (req, res) => {
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
 
-        const access_token = body.access_token;
-        const refresh_token = body.refresh_token;
+        var access_token = body.access_token,
+            refresh_token = body.refresh_token;
+
+        var options = {
+          url: 'https://api.spotify.com/v1/me',
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          json: true
+        };
+
+        // use the access token to access the Spotify Web API
+        request.get(options, function(error, response, body) {
+          console.log(body);
+        });
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-            `${FRONTEND_URI}/${querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token
+          `${FRONTEND_URI}/#${querystring.stringify({
+            access_token,
+            refresh_token,
           })}`,
         );
       } else {

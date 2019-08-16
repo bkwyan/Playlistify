@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Particles from 'react-particles-js';
 import LoginScreen from './components/LoginScreen/LoginScreen';
+import Message from './components/Message/Message';
 import './App.css';
+import { token } from './spotify/index';
 
 const particlesOptions = {
   particles: {
@@ -36,14 +38,12 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      LOGIN_URI: 'http://localhost:8888/login'
-    }
+      token: '',
+    };
   }
-
-  componentDidMount() {
-    fetch('http://localhost:8888/')
-      .then(response => response.json())
-      .then(console.log)
+  
+  componentDidMount = () => {
+    this.setState({ token });
   }
 
   render() {
@@ -52,7 +52,7 @@ class App extends Component {
         <Particles className = 'particles'
           params={particlesOptions}
         />
-        <LoginScreen LOGIN_URI = {this.state.LOGIN_URI} />
+        {token ? <Message /> : <LoginScreen />}
       </div>
     );
   }

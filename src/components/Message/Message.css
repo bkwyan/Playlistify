@@ -1,5 +1,10 @@
 .sweet-loading{
 	display: block;
 	margin: 0;
-	botder-color: red;
+	border-color: red;
+}
+
+.center{
+	display: flex;
+	justify-content: center;
 }

@@ -6,14 +6,14 @@ class LoginScreen extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-
+			LOGIN_URI: 'http://localhost:8888/login',
 		}
 	}
 
 	render(){
 		return(
 			<div>
-				<a href = {this.props.LOGIN_URI}>
+				<a href = {this.state.LOGIN_URI}>
 					<div className = 'center pv6'>
 						<Tilt options={{ max : 55, scale: 1.5,}} style={{height: 300, width: 300}}>
 							<div className = "Tilt-inner pa3 pointer">
