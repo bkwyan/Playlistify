@@ -32,7 +32,7 @@ app
   .use(bodyParser.json())
   .use(cookieParser())
 
-app.get('/login', (req, res) => {
+app.get('https://vast-mountain-68596.herokuapp.com/login', (req, res) => {
   const state = generateRandomString(16);
 
   res.cookie(stateKey, state);
@@ -50,7 +50,7 @@ app.get('/login', (req, res) => {
   );
 });
 
-app.get('/callback', function(req, res) {
+app.get('https://vast-mountain-68596.herokuapp.com/callback', function(req, res) {
 
   // your application requests refresh and access tokens
   // after checking the state parameter
@@ -113,7 +113,7 @@ app.get('/callback', function(req, res) {
   }
 });
 
-app.get('/refresh_token', (req, res) => {
+app.get('https://vast-mountain-68596.herokuapp.com/refresh_token', (req, res) => {
 
   // requesting access token from refresh token
   var refresh_token = req.query.refresh_token;
