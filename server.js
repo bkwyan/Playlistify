@@ -1,10 +1,9 @@
-const path = require('path');
-
-require('dotenv').config({path: path.join(__dirname, '../.env')});
+require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const querystring = require('querystring');
 const request = require('request');
 const cookieParser = require('cookie-parser');
