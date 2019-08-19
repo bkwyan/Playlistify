@@ -1,10 +1,13 @@
 {
   "name": "playlistify-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playlistify",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"
+  },
+  "engines": {
+    "node": "10.15.3"
   },
   "author": "",
   "license": "ISC",
